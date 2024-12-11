@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Projects
+{% endblock %}
+
+{% block more_css %}
+    <link rel="stylesheet" href="{% static './css/project-section.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="projects-section center-column">
+        <h2>My Projects</h2>
+        <div class="projects-list center-row">
+            <!-- One card for Each project -->
+            {% for project in projects %}
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="{{project.image}}" alt="Project Image">
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">{{project.name}}</h3>
+                        <p class="project-description">{{project.description}}</p>
+                        <p class="project-year">Year: {{project.year}}</p>
+                        <div class="project-skills">
+                            <span class="skill">HTML</span>
+                            <span class="skill">CSS</span>
+                            <span class="skill">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

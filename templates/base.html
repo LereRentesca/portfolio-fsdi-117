@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="{% static './css/header.css' %}">
     <link rel="stylesheet" href="{% static './css/sections.css' %}">
     <link rel="stylesheet" href="{% static './css/responsive.css' %}">
+    {% block more_css %}
+        
+    {% endblock %}
 
     <title>{% block title %}{% endblock title %}</title>
 </head>
@@ -24,8 +27,10 @@
     <header class="center-row">
 
         <!-- Left Side -->
-        <div class="logo center-row">
-            <img src="{% static './img/logo.png' %}" alt="">
+        <div class="logo">
+            <a class="center-row" href="{% url 'about_url' %}">
+                <img src="{% static './img/logo.png' %}" alt="">
+            </a>
         </div>
 
         <!-- Right Side -->
@@ -34,8 +39,8 @@
 
             <!-- Menu Options -->
             <div class="nav-options center-row">
-                <a href="">About Me</a>
-                <a href="">Projects</a>
+                <a href="{% url 'about_url' %}">About Me</a>
+                <a href="{% url 'projects_list' %}">Projects</a>
                 <a href="">Experience</a>
                 <a href="">Contact</a>
             </div>
